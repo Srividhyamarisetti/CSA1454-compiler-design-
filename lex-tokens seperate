@@ -1,0 +1,83 @@
+%{ 
+#include<stdio.h> 
+%} 
+%% 
+bool|int|float|main|printf|int|char|float|double|void|if|while|for|do|main|return|else|elseif {printf("\n%s is a Keyword",yytext);}
+[-,+]?[0-9]+ {printf("\n%s is a numbers",yytext);} 
+[,.;]+ {printf("\n%s is a Punctuation Chars",yytext);} 
+[a-zA-Z_][a-zA-Z0-9_]* { printf("Identifier: %s\n", yytext);} 
+["a-zA-Z"]+ {printf("\n%s is a string",yytext);} 
+[!%^&-+*()]+ {printf("\n%s is a mathematical operator",yytext);} 
+ 
+%% 
+int yywrap() 
+{ 
+} 
+int main() 
+{ 
+yylex(); 
+} 
+
+
+output:
+C:\Users\Srivi>a
+#include<stdio.h>
+#Identifier: include
+<Identifier: stdio
+
+. is a Punctuation CharsIdentifier: h
+>
+#include<stdio.h>
+#Identifier: include
+<Identifier: stdio
+
+. is a Punctuation CharsIdentifier: h
+>
+int main()
+
+int is a Keyword
+main is a Keyword
+() is a mathematical operator
+{
+{
+        int n,fact=1,i;
+
+int is a Keyword Identifier: n
+
+, is a Punctuation CharsIdentifier: fact
+=
+1 is a numbers
+, is a Punctuation CharsIdentifier: i
+
+; is a Punctuation Chars
+        int *ptr;
+
+int is a Keyword
+* is a mathematical operatorIdentifier: ptr
+
+; is a Punctuation Chars
+
+
+        printf("enter an integer:");
+
+printf is a Keyword
+( is a mathematical operator
+"enter is a string Identifier: an
+ Identifier: integer
+:
+" is a string
+) is a mathematical operator
+; is a Punctuation Chars
+        scanf("%d",&n);
+        Identifier: scanf
+
+( is a mathematical operator
+" is a string
+% is a mathematical operator
+d" is a string
+, is a Punctuation Chars
+& is a mathematical operatorIdentifier: n
+
+) is a mathematical operator
+; is a Punctuation Chars
+        printf("the factorial of the number is:");
