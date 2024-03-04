@@ -1,0 +1,40 @@
+%{ 
+#include<stdio.h> 
+float op1=6,op2=7; 
+%} 
+ 
+%% 
+"+" {printf("sum =%lf",op1+op2);} 
+"-" {printf("diff=%lf",op1-op2);} 
+"*" {printf("mul=%lf",op1*op2);} 
+"/" {printf("div=%lf",op1/op2);} 
+. {printf("enter proper operator.");} 
+%% 
+ 
+int yywrap(){} 
+int main() 
+{ 
+printf("enter number 1:\n"); 
+printf("enter number 2:\n"); 
+printf("Enter the Operator::\n"); 
+yylex(); 
+} 
+
+
+output:
+C:\Users\Srivi>set path=C:\Users\Srivi\GnuWin32\bin
+
+C:\Users\Srivi>flex math_operations.l.txt
+
+C:\Users\Srivi>set path=C:\Users\MinGW\bin
+
+C:\Users\Srivi>gcc lex.yy.c
+
+C:\Users\Srivi>a
+enter number 1:
+enter number 2:
+Enter the Operator::
+2
+enter proper operator.
++
+sum =13.000000
