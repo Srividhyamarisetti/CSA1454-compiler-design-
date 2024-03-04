@@ -10,3 +10,23 @@ int main()
 {
 yylex();
 }
+
+
+OUTPUT:
+C:\Users\Srivi>set path=C:\Users\Srivi\GnuWin32\bin
+
+C:\Users\Srivi>flex mobile.l.txt
+
+C:\Users\Srivi>set path=C:\Users\MinGW\bin
+
+C:\Users\Srivi>gcc lex.yy.c
+
+C:\Users\Srivi>a
+
+enter mobile number : 7093477106
+
+ monile number valid
+
+74854i392
+
+ mobile number invalid
