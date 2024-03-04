@@ -1,23 +1,33 @@
-%{
-	#include<stdio.h>
-        int v=0;
-        int c=0;
-%}
+%{ 
+int vcount=0; 
+int ccount=0; 
+%} 
+%% 
+[aeiouAEIOU] {vcount++;} 
+[a-z,A-Z] {ccount++;} 
+%% 
+int yywrap(){} 
+int main() 
+{ 
+printf("enter the string with vowels and consonants:"); 
+yylex(); 
+printf("\n no of vowels ::%d \n",vcount); 
+printf("\n no of consonants ::%d \n",ccount); 
+} 
 
-%%
-[ \t\n]+ ;
-[aeiouAEIOU] {v++;}
-[^aeiouAEIOU] {c++;}
-%%
+output:
+C:\Users\Srivi>set path=C:\Users\Srivi\GnuWin32\bin
 
-int main( ) 
-{
-	printf("Enter the input String :\n");
-	yylex();
-printf("No of vowels are %d \n",v);
-printf("No of consonents are %d \n",c);
-}
-int yywrap( )
-{
-	return 1;
-}
+C:\Users\Srivi>flex vowels_consonants.l.txt
+
+C:\Users\Srivi>set path=C:\Users\MinGW\bin
+
+C:\Users\Srivi>gcc lex.yy.c
+
+C:\Users\Srivi>a
+enter the string with vowels and consonants:aeihgfd
+
+
+ no of vowels ::3
+
+ no of consonants ::4
