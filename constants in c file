@@ -1,0 +1,40 @@
+digit [0-9]
+%{
+int cons=0;
+%}pq;a
+%%
+{digit}+ {cons++; printf("%s is a constant\n", yytext);  }
+.|\n 
+
+%%
+int yywrap(void) {
+return 1; }
+int main(void)
+{
+yyin = fopen("factoril.txt","r");
+yylex();
+printf("Number of Constants : %d\n", cons);
+fclose(yyin);  
+}
+
+output:
+C:\Users\Srivi>set path=C:\Users\Srivi\GnuWin32\bin
+
+C:\Users\Srivi>flex consonants_cfile.l.txt
+
+C:\Users\Srivi>set path=C:\Users\Srivi\GnuWin32\bin
+
+C:\Users\Srivi>flex constants_cfile.l.txt
+
+C:\Users\Srivi>set path=C:\Users\MinGW\bin
+
+C:\Users\Srivi>gcc lex.yy.c
+
+C:\Users\Srivi>a
+100 is a constant
+5 is a constant
+4 is a constant
+3 is a constant
+Number of Constants : 4
+
+C:\Users\Srivi>
